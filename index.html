@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Generate simple recipe ideas using ingredients you already have at home.">
+  <meta name="theme-color" content="#f7f5ed">
+  <title>Recipe Generator from Ingredients</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="brand-icon" aria-hidden="true">🥕</div>
+      <div>
+        <p class="eyebrow">LESS WASTE · MORE TASTE</p>
+        <h1>Recipe Generator</h1>
+        <p class="subtitle">Turn the ingredients you already have into something delicious.</p>
+      </div>
+    </header>
+
+    <section class="intro-card">
+      <div class="intro-emoji" aria-hidden="true">🥘</div>
+      <div>
+        <h2>What's in your kitchen?</h2>
+        <p>Enter any vegetables or other ingredients you have. Get three simple cooking ideas instantly — no API key or internet connection needed.</p>
+      </div>
+    </section>
+
+    <section class="form-card">
+      <form id="ingredientForm">
+        <label for="ingredientsInput">Your ingredients</label>
+        <textarea id="ingredientsInput" rows="4" maxlength="1000" placeholder="Example: potato, onion, tomato, rice, spinach, paneer" required></textarea>
+        <p class="hint">Separate ingredients with commas or new lines. Supports common Indian and international vegetable names. Enter up to 50 ingredients.</p>
+
+        <div class="pantry-note">
+          <strong>Basic pantry items allowed:</strong>
+          <span>oil, water, salt, black pepper, turmeric, chilli powder, cumin and coriander powder.</span>
+          <small>These are optional. The generator shows optional pantry items separately. Use only what you have.</small>
+        </div>
+
+        <div class="examples">
+          <span>Try an example:</span>
+          <button type="button" class="example-chip" data-value="potato, onion, tomato, green peas">Potato + peas</button>
+          <button type="button" class="example-chip" data-value="rice, egg, onion, carrot">Rice + egg</button>
+          <button type="button" class="example-chip" data-value="bread, cheese, tomato, onion">Bread + cheese</button>
+          <button type="button" class="example-chip" data-value="spinach, paneer, tomato, onion">Spinach + paneer</button>
+        </div>
+
+        <div class="actions">
+          <button id="generateButton" class="primary-button" type="submit">✨ Generate 3 recipes</button>
+          <button id="clearButton" class="secondary-button" type="button">Clear</button>
+        </div>
+        <p id="errorMessage" class="error" role="alert" hidden></p>
+      </form>
+    </section>
+
+    <section id="resultsSection" class="results-section" aria-live="polite" hidden>
+      <div class="results-heading">
+        <div>
+          <p class="eyebrow">MADE FROM YOUR INGREDIENTS</p>
+          <h2>Your recipe ideas</h2>
+          <p id="resultsSummary" class="results-summary"></p>
+        </div>
+        <button id="printButton" class="print-button" type="button">Print recipes</button>
+      </div>
+      <div id="recipeGrid" class="recipe-grid"></div>
+      <p class="footer-note">This is an offline, rule-based cooking helper, not a trained AI chef. It can suggest flexible methods for unfamiliar vegetables, but it cannot guarantee every combination will taste good. Check freshness, allergies and food safety; cook ingredients thoroughly.</p>
+    </section>
+
+    <footer>
+      <p>Simple cooking ideas · No account · No API key · No backend</p>
+    </footer>
+  </main>
+</body>
+</html>
